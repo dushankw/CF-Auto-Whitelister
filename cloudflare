@@ -1,8 +1,6 @@
 #!/bin/bash 
 
-if [ $UID -ne 0 ] ; then
-    echo 'Run me as root'
-else
+if [ $UID -eq 0 ] ; then
     cf=`curl -s 'https://www.cloudflare.com/ips-v4'`
     ips=(${cf//\n/ })
 
