@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+if [ $UID -ne 0 ] ; then
+    echo 'Run me as root'
+else
+    cf=`curl -s 'https://www.cloudflare.com/ips-v4'`
+    ips=(${cf//\n/ })
+
+    for i in "${ips[@]}"
+    do
+        ufw allow from $i to any port 80 proto tcp
+        ufw allow from $i to any port 443 proto tcp
+    done
+fi
