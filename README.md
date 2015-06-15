@@ -9,6 +9,7 @@ CloudFlare Automatic Whitelister
 ## The answer
 * This script will get all the current CloudFlare IP addresses and allow them on ports 80 and 443.
 * Just add it to the root users crontab and run as often as you like (I personally do it weekly).
+* Assuming no other ports are open to the world this effectively makes your server invisible on the internet yet websites are still accessible via CloudFlare.
 
 ## Requirements
 * A Debian/Ubuntu server with UFW installed and enabled as the system Firewall.
